@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee directory — Northline HR</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/employee.css">
+</head>
+<body data-page="employees">
+  <div class="app">
+    <aside class="sidebar" id="sidebar" data-open="false"></aside>
+
+    <div class="shell">
+      <header class="topbar">
+        <button class="menu-toggle" data-menu-toggle aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+        <div>
+          <h1 class="topbar__title">Employee directory</h1>
+          <p class="topbar__sub" id="result-summary">Loading records</p>
+        </div>
+        <span class="topbar__spacer"></span>
+        <a class="btn btn--primary btn--sm" href="add-employee.html"><span class="btn__label">Add employee</span></a>
+      </header>
+
+      <main class="content">
+        <section class="card">
+          <form class="filters" id="filter-form" role="search">
+            <div class="field">
+              <label for="search">Search</label>
+              <input class="input" type="search" id="search" name="q"
+                     placeholder="Name, employee ID, email or position">
+            </div>
+            <div class="field">
+              <label for="department">Department</label>
+              <select class="select" id="department" name="department">
+                <option value="">All departments</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="status">Status</label>
+              <select class="select" id="status" name="status">
+                <option value="">Any status</option>
+                <option>Active</option>
+                <option>On Leave</option>
+                <option>Inactive</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="page-size">Per page</label>
+              <select class="select" id="page-size" name="page_size">
+                <option>8</option>
+                <option>15</option>
+                <option>25</option>
+              </select>
+            </div>
+            <button type="button" class="btn" id="clear-filters"><span class="btn__label">Clear</span></button>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="table-wrap">
+            <table class="table" id="employee-table">
+              <thead>
+                <tr>
+                  <th class="sortable" data-sort="last_name" scope="col">Employee</th>
+                  <th class="sortable" data-sort="position" scope="col">Position</th>
+                  <th class="sortable" data-sort="department" scope="col">Department</th>
+                  <th class="sortable" data-sort="employment_status" scope="col">Status</th>
+                  <th class="sortable" data-sort="date_hired" scope="col">Date hired</th>
+                  <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody id="employee-rows">
+                <tr><td colspan="6"><div class="state"><span class="spinner"></span>Loading employees</div></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <span id="page-info"></span>
+            <div class="pagination__pages">
+              <button type="button" class="btn btn--sm" id="prev-page"><span class="btn__label">Previous</span></button>
+              <button type="button" class="btn btn--sm" id="next-page"><span class="btn__label">Next</span></button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/mock-api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/shell.js"></script>
+  <script src="../js/employees.js"></script>
+</body>
+</html>

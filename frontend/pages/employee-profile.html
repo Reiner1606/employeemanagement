@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Employee profile — Northline HR</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/employee.css">
+</head>
+<body data-page="employee-profile">
+  <div class="app">
+    <aside class="sidebar" id="sidebar" data-open="false"></aside>
+
+    <div class="shell">
+      <header class="topbar">
+        <button class="menu-toggle" data-menu-toggle aria-label="Open navigation" aria-expanded="false">&#9776;</button>
+        <div>
+          <h1 class="topbar__title">Employee profile</h1>
+          <p class="topbar__sub" id="profile-breadcrumb">Loading</p>
+        </div>
+        <span class="topbar__spacer"></span>
+        <button type="button" class="btn btn--sm" id="back"><span class="btn__label">Back</span></button>
+      </header>
+
+      <main class="content" id="profile-root">
+        <div class="state"><span class="spinner"></span>Loading profile</div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/mock-api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/shell.js"></script>
+  <script src="../js/employee-profile.js"></script>
+</body>
+</html>

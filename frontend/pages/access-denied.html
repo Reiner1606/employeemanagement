@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access not granted — Northline HR</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body data-page="access-denied">
+  <main class="auth">
+    <div class="auth__panel">
+      <div class="auth__brand">
+        <span class="brand__mark" aria-hidden="true">NL</span>
+        <h1 class="auth__title">This account cannot open the admin tools</h1>
+        <p class="auth__sub" id="denied-reason">
+          Your sign-in was verified, but the employee management permission is not assigned to this account.
+        </p>
+      </div>
+
+      <div class="alert alert--warning">
+        For your security the session has been closed. Ask the system administrator to assign the
+        employee management role, then sign in again.
+      </div>
+
+      <dl class="info-list" style="margin-bottom:24px">
+        <div>
+          <dt>Account</dt>
+          <dd id="denied-account">--</dd>
+        </div>
+        <div>
+          <dt>Reference</dt>
+          <dd id="denied-reference">--</dd>
+        </div>
+        <div>
+          <dt>Contact</dt>
+          <dd>it-helpdesk@northline.example &middot; ext. 2140</dd>
+        </div>
+      </dl>
+
+      <a class="btn btn--primary btn--block" href="login.html">
+        <span class="btn__label">Back to sign in</span>
+      </a>
+    </div>
+  </main>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/mock-api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/login.js"></script>
+</body>
+</html>
