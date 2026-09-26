@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User access portal — Google</title>
+  <!-- Deployment override: set this to the public or Tailscale API address.
+       <meta name="api-base-url" content="https://hr.example.com/api"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body data-page="portal">
+  <main class="auth">
+    <div class="auth__panel auth__panel--wide">
+      <div class="auth__brand">
+        <span class="brand__mark" aria-hidden="true">G</span>
+        <h1 class="auth__title">Employee Profile Management System</h1>
+        <p class="auth__sub">Choose how you are signing in today.</p>
+      </div>
+
+      <div class="role-grid">
+        <a class="role-card" href="pages/login.html?role=employee">
+          <span class="role-card__mark" aria-hidden="true">&#9679;</span>
+          <h3>Employee</h3>
+          <p>View your own profile, keep your contact details current, and check your employment record.</p>
+        </a>
+
+        <a class="role-card role-card--admin" href="pages/login.html?role=admin">
+          <span class="role-card__mark" aria-hidden="true">&#9670;</span>
+          <h3>Administrator</h3>
+          <p>Manage the employee directory, add and update records, and review activity across departments.</p>
+        </a>
+      </div>
+
+      <div class="auth__footer">
+        <span>Accounts are created by your system administrator.</span>
+        <a href="pages/reset-password.html">Reset a password</a>
+      </div>
+    </div>
+
+    <p class="auth__note">
+      Internal system. Access is logged. If you reach this page by mistake, close the tab.
+    </p>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/mock-api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Someone already signed in goes straight to their dashboard.
+    (function () {
+      var user = window.Auth.getUser();
+      if (user) window.location.replace("pages/" + window.Auth.homeRouteFor(user));
+    })();
+  </script>
+</body>
+</html>

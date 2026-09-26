@@ -1,0 +1,151 @@
+/* Employee directory table, profile page and employee forms. */
+
+/* ------------------------------------------------------------------ Filters */
+.filters {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) repeat(3, minmax(140px, 1fr)) auto;
+  gap: var(--sp-3);
+  align-items: end;
+}
+.filters .field { margin-bottom: 0; }
+
+/* ------------------------------------------------------------------- Table */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--glass-border);
+}
+.table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.table thead th {
+  position: sticky;
+  top: 0;
+  text-align: left;
+  padding: var(--sp-3) var(--sp-4);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: rgba(12, 24, 41, 0.92);
+  border-bottom: 1px solid var(--glass-border);
+  white-space: nowrap;
+}
+.table tbody td {
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: middle;
+}
+.table tbody tr:last-child td { border-bottom: 0; }
+.table tbody tr:hover { background: rgba(255, 255, 255, 0.04); }
+
+.sortable { cursor: pointer; user-select: none; }
+.sortable:hover { color: var(--text); }
+.sortable[data-dir="asc"]::after  { content: " \25B2"; font-size: 0.65em; }
+.sortable[data-dir="desc"]::after { content: " \25BC"; font-size: 0.65em; }
+
+.person { display: flex; align-items: center; gap: var(--sp-3); }
+.avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  flex: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #061520;
+  background: linear-gradient(145deg, var(--accent) 0%, var(--accent-teal) 100%);
+  object-fit: cover;
+}
+.avatar--lg { width: 88px; height: 88px; font-size: 1.6rem; border-radius: 22px; }
+.person__name { font-weight: 500; }
+.person__id { font-size: 0.78rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+.row-actions { display: flex; gap: var(--sp-2); justify-content: flex-end; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.pagination__pages { display: flex; gap: var(--sp-2); }
+
+/* ----------------------------------------------------------------- Profile */
+.profile-head {
+  display: flex;
+  gap: var(--sp-5);
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile-head__meta { flex: 1; min-width: 220px; }
+.profile-head__name { font-size: 1.5rem; margin-bottom: 2px; }
+.profile-head__role { color: var(--text-muted); margin-bottom: var(--sp-3); }
+.profile-head__tags { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.profile-head__actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+
+.info-list { display: grid; gap: var(--sp-3); }
+.info-list > div {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--sp-3);
+  align-items: baseline;
+}
+.info-list dt { color: var(--text-muted); font-size: 0.83rem; margin: 0; }
+.info-list dd { margin: 0; word-break: break-word; }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+.section-title h2 { margin: 0; font-size: 1rem; }
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--glass-border);
+}
+
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+/* ------------------------------------------------------------- Form layout */
+.form-section { margin-bottom: var(--sp-5); }
+.form-section:last-of-type { margin-bottom: 0; }
+
+.photo-picker { display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap; }
+.photo-picker__hint { font-size: 0.8rem; color: var(--text-muted); max-width: 320px; }
+
+@media (max-width: 860px) {
+  .filters { grid-template-columns: 1fr 1fr; }
+  .filters .field:first-child { grid-column: 1 / -1; }
+  .info-list > div { grid-template-columns: 1fr; gap: 2px; }
+  .profile-head { gap: var(--sp-4); }
+  .profile-head__actions { width: 100%; }
+  .profile-head__actions .btn { flex: 1; }
+}
+
+@media (max-width: 520px) {
+  .filters { grid-template-columns: 1fr; }
+  .row-actions { justify-content: flex-start; }
+}
